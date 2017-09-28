@@ -30,6 +30,7 @@ function startGame() {
 }
 
 function takeSpace() {
+	console.log('takeSpace')
 	turn++;
 	var currentPlayer = symbols[turn % 2];
 	this.innerHTML = currentPlayer; // The modulus swaps between 0 and 1 of the symbols array
@@ -46,19 +47,30 @@ function takeSpace() {
 
 			// Notify the players
 			notification.style.display = 'block';
-			winnerMessage.innerHTML = currentPlayer + " won!";
+			winnerMessage.innerHTML = "Yay! " + currentPlayer + " won!";
+
 		} else {
 			
 			if (turn == 9) {
-				notification.style.display = 'block';
-				winnerMessage.innerHTML += "Tie game";
+				if (notification.style.display != 'block') {
+					notification.style.display = 'block';
+					winnerMessage.innerHTML = "Tie game";
+				}
 			}
 		}
 	}
 }
 
 function checkForWin(winArray) {
-		return spaces[winArray[0]].innerHTML !== '' && 
-			spaces[winArray[0]].innerHTML === spaces[winArray[1]].innerHTML && 
-			spaces[winArray[0]].innerHTML === spaces[winArray[2]].innerHTML;
+	return spaces[winArray[0]].innerHTML !== '' && 
+		spaces[winArray[0]].innerHTML === spaces[winArray[1]].innerHTML && 
+		spaces[winArray[0]].innerHTML === spaces[winArray[2]].innerHTML;
 }
+
+// function checkForWin(winArray) {
+// 		var result = spaces[winArray[0]].innerHTML !== '' && 
+// 			spaces[winArray[0]].innerHTML === spaces[winArray[1]].innerHTML && 
+// 			spaces[winArray[0]].innerHTML === spaces[winArray[2]].innerHTML;
+// 		console.log('checkForWin', result);
+// 		return result;
+// }
