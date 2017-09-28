@@ -11,6 +11,7 @@ Recreate tic-tac-toe in JavaScript
 3. Players alternate placing one of their symbols (X's or O's) on an unoccupied space
 4. The game continues until one player places three symbols in a straight line (horizontal, vertical or diagonal) and therefore wins
 5. If there are no remaining spaces available and neither player has won, the game is a draw
+6. Alert players when the game is over
 
 ## Additional Requirements
 
